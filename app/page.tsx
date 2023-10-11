@@ -110,7 +110,7 @@ export default function Home() {
   const [time, setTime] = useState(0);
   const timer = useRef<NodeJS.Timeout | undefined>();
   const startTimer = useCallback(() => {
-    setTime(3);
+    setTime(10);
     timer.current = setInterval(() => {
       setTime((prev) => {
         if (prev === 0) return prev;
@@ -123,6 +123,8 @@ export default function Home() {
       });
     }, 1000);
   }, [goNextStage]);
+
+  const [input, setInput] = useState('');
 
   return (
     <main className='w-full h-screen relative flex flex-col'>
@@ -145,12 +147,19 @@ export default function Home() {
       </div>
       {time}
       <div className='w-full flex pl-8 pb-8 pr-4 no-scrollbar items-center'>
-        <input className='flex-1 text-black' />
+        <input
+          className='flex-1 text-black'
+          value={input}
+          onChange={(e) => {
+            setInput(e.target.value);
+          }}
+        />
         <button
           className='ml-2'
           disabled={time === 0}
           onClick={() => {
-            setCurrentStage((prev) => prev + 1);
+            pushMessage(input);
+            setInput('');
           }}
         >
           <Icon className='w-8 h-8' icon='formkit:submit' />
