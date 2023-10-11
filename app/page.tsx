@@ -15,10 +15,6 @@ import {
 import { Icon } from '@iconify/react';
 import useMessageStorage from '@/app/hooks/useMessageStorage';
 
-interface MessageInjected extends MessageType {
-  index: number;
-}
-
 interface MessageProps extends MessageType {
   onFinished: () => void;
 }
@@ -45,8 +41,9 @@ const AssistantMessage = ({ type, content, onFinished }: MessageProps) => {
   );
 };
 interface StageProps {
-  messages: Array<MessageInjected>;
+  messages: Array<MessageType>;
   onFinished: () => void;
+  isLatest?: boolean;
 }
 const AssistantStage = ({ messages, onFinished }: StageProps) => {
   const [typedIndex, setTypedIndex] = useState(0);
@@ -69,10 +66,17 @@ const AssistantStage = ({ messages, onFinished }: StageProps) => {
   );
 };
 
-const UserStage = ({ messages }: Omit<StageProps, 'onFinished'>) => (
+const UserStage = ({ messages, isLatest }: Omit<StageProps, 'onFinished'>) => (
   <div className='w-full flex flex-col items-end'>
-    {messages.map(({ index, content }) => (
-      <div key={index}>{content}</div>
+    {messages.map(({ content }, index) => (
+      <div
+        className={
+          isLatest || index === messages.length - 2 ? '' : 'text-gray-600'
+        }
+        key={index}
+      >
+        {content}
+      </div>
     ))}
   </div>
 );
@@ -128,7 +132,7 @@ export default function Home() {
     <main className='w-full h-screen relative flex flex-col'>
       <div className='flex-1 overflow-auto p-8' ref={outerRef}>
         <div ref={innerRef}>
-          {injectedData.map(({ role, messages, stageIndex }) =>
+          {injectedData.map(({ role, messages, stageIndex }, index) =>
             role === 'assistant' ? (
               <AssistantStage
                 key={stageIndex}
@@ -138,7 +142,11 @@ export default function Home() {
                 }}
               />
             ) : (
-              <UserStage key={stageIndex} messages={messages} />
+              <UserStage
+                key={stageIndex}
+                messages={messages}
+                isLatest={index === injectedData.length - 1}
+              />
             )
           )}
         </div>
