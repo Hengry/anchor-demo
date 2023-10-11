@@ -4,7 +4,7 @@ import Image from 'next/image';
 import tw from 'twin.macro';
 import { twJoin } from 'tailwind-merge';
 import { TypeAnimation } from 'react-type-animation';
-import { useState, useMemo, useRef } from 'react';
+import { useState, useMemo, useRef, useEffect, ElementRef } from 'react';
 import { Icon } from '@iconify/react';
 
 interface MessageType {
@@ -226,9 +226,8 @@ const HostMessage = ({
   if (type === 'image')
     return (
       <Image
-        // className='relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert'
         src={content}
-        alt='Next.js Logo'
+        alt='image'
         width={180}
         height={180}
         priority
@@ -291,6 +290,17 @@ export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [currentStage, setCurrentStage] = useState(0);
 
+  const outerRef = useRef<ElementRef<'div'>>(null);
+  const innerRef = useRef<ElementRef<'div'>>(null);
+  useEffect(() => {
+    if (!innerRef.current) return;
+    const resizeObserver = new ResizeObserver(() => {
+      outerRef.current?.scrollTo(0, outerRef.current?.scrollHeight);
+    });
+    resizeObserver.observe(innerRef.current);
+    return () => resizeObserver.disconnect(); // clean up
+  }, []);
+
   const injectedData = useMemo(() => {
     let index = 0;
     return data.map((stage, stageIndex) => ({
@@ -308,28 +318,30 @@ export default function Home() {
 
   return (
     <main className='w-full h-screen relative flex flex-col p-8'>
-      <div className='flex-1 overflow-auto'>
-        {injectedData.map(({ from, messages, stageIndex }) =>
-          from === 'host' ? (
-            <HostStage
-              key={stageIndex}
-              messages={messages}
-              activeIndex={activeIndex}
-              onFinished={(isLast) => {
-                if (isLast) {
-                  setIsWaitingForInput(true);
-                  setCurrentStage((prev) => prev + 1);
-                } else setActiveIndex((prev) => prev + 1);
-              }}
-            />
-          ) : (
-            <UserStage
-              key={stageIndex}
-              messages={messages}
-              activeIndex={activeIndex}
-            />
-          )
-        )}
+      <div className='flex-1 overflow-auto' ref={outerRef}>
+        <div ref={innerRef}>
+          {injectedData.map(({ from, messages, stageIndex }) =>
+            from === 'host' ? (
+              <HostStage
+                key={stageIndex}
+                messages={messages}
+                activeIndex={activeIndex}
+                onFinished={(isLast) => {
+                  if (isLast) {
+                    setIsWaitingForInput(true);
+                    setCurrentStage((prev) => prev + 1);
+                  } else setActiveIndex((prev) => prev + 1);
+                }}
+              />
+            ) : (
+              <UserStage
+                key={stageIndex}
+                messages={messages}
+                activeIndex={activeIndex}
+              />
+            )
+          )}
+        </div>
       </div>
       <div className='w-full flex'>
         {isWaitingForInput ? (
