@@ -18,13 +18,13 @@ interface MessageInjected extends MessageType {
 }
 
 interface StageType {
-  role: 'host' | 'user';
+  role: 'assistant' | 'user';
   messages: Array<MessageType>;
 }
 
 const data: StageType[] = [
   {
-    role: 'host',
+    role: 'assistant',
     messages: [
       {
         type: 'text',
@@ -51,7 +51,7 @@ const data: StageType[] = [
     ],
   },
   {
-    role: 'host',
+    role: 'assistant',
     messages: [
       {
         type: 'text',
@@ -80,7 +80,7 @@ const data: StageType[] = [
     ],
   },
   {
-    role: 'host',
+    role: 'assistant',
     messages: [
       {
         type: 'text',
@@ -123,7 +123,7 @@ const data: StageType[] = [
     ],
   },
   {
-    role: 'host',
+    role: 'assistant',
     messages: [
       {
         type: 'text',
@@ -151,7 +151,7 @@ const data: StageType[] = [
     ],
   },
   {
-    role: 'host',
+    role: 'assistant',
     messages: [
       {
         type: 'text',
@@ -180,7 +180,7 @@ const data: StageType[] = [
     ],
   },
   {
-    role: 'host',
+    role: 'assistant',
     messages: [
       {
         type: 'image',
@@ -217,7 +217,7 @@ interface MessageProps extends MessageType {
   onFinished: (isTheLast: boolean) => void;
   isLastOfTheStage: boolean;
 }
-const HostMessage = ({
+const AssistantMessage = ({
   type,
   content,
   onFinished,
@@ -258,11 +258,11 @@ interface StageProps {
   activeIndex: number;
   onFinished: (isTheLast: boolean) => void;
 }
-const HostStage = ({ messages, activeIndex, onFinished }: StageProps) => (
+const AssistantStage = ({ messages, activeIndex, onFinished }: StageProps) => (
   <div>
     {messages.map(({ index, type, content, isLastOfTheStage }) =>
       index <= activeIndex ? (
-        <HostMessage
+        <AssistantMessage
           key={index}
           type={type}
           content={content}
@@ -321,8 +321,8 @@ export default function Home() {
       <div className='flex-1 overflow-auto' ref={outerRef}>
         <div ref={innerRef}>
           {injectedData.map(({ role, messages, stageIndex }) =>
-            role === 'host' ? (
-              <HostStage
+            role === 'assistant' ? (
+              <AssistantStage
                 key={stageIndex}
                 messages={messages}
                 activeIndex={activeIndex}
