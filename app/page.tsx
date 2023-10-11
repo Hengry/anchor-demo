@@ -17,7 +17,6 @@ import useMessageStorage from '@/app/hooks/useMessageStorage';
 
 interface MessageInjected extends MessageType {
   index: number;
-  isLastOfTheStage: boolean;
 }
 
 interface MessageProps extends MessageType {
@@ -72,7 +71,7 @@ const AssistantStage = ({ messages, onFinished }: StageProps) => {
 
 const UserStage = ({ messages }: Omit<StageProps, 'onFinished'>) => (
   <div className='w-full flex flex-col items-end'>
-    {messages.map(({ index, type, content, isLastOfTheStage }) => (
+    {messages.map(({ index, content }) => (
       <div key={index}>{content}</div>
     ))}
   </div>
@@ -101,7 +100,6 @@ export default function Home() {
       stageIndex,
       messages: stage.messages.map((message, i) => ({
         ...message,
-        isLastOfTheStage: i === stage.messages.length - 1,
         index: index++,
       })),
     }));
