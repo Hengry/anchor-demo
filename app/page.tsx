@@ -18,13 +18,13 @@ interface MessageInjected extends MessageType {
 }
 
 interface StageType {
-  from: 'host' | 'user';
+  role: 'host' | 'user';
   messages: Array<MessageType>;
 }
 
 const data: StageType[] = [
   {
-    from: 'host',
+    role: 'host',
     messages: [
       {
         type: 'text',
@@ -41,7 +41,7 @@ const data: StageType[] = [
     ],
   },
   {
-    from: 'user',
+    role: 'user',
     messages: [
       { type: 'text', content: 'Plant cannabisEarly' },
       { type: 'text', content: 'Plant cannabis222' },
@@ -51,7 +51,7 @@ const data: StageType[] = [
     ],
   },
   {
-    from: 'host',
+    role: 'host',
     messages: [
       {
         type: 'text',
@@ -70,7 +70,7 @@ const data: StageType[] = [
     ],
   },
   {
-    from: 'user',
+    role: 'user',
     messages: [
       { type: 'text', content: 'a group of bunnies' },
       { type: 'text', content: 'a group of bunnies' },
@@ -80,7 +80,7 @@ const data: StageType[] = [
     ],
   },
   {
-    from: 'host',
+    role: 'host',
     messages: [
       {
         type: 'text',
@@ -98,7 +98,7 @@ const data: StageType[] = [
     ],
   },
   {
-    from: 'user',
+    role: 'user',
     messages: [
       {
         type: 'text',
@@ -123,12 +123,12 @@ const data: StageType[] = [
     ],
   },
   {
-    from: 'host',
+    role: 'host',
     messages: [
       {
         type: 'text',
         content:
-          'with hardworking bunnies’ contribution, the progress on expansion slowly takes shape\nwe now have a home to take shelter in.\npeople from all walks of life started. to notice this deserted plot of land\nelves, knights, warlocks, even pirates\nthe area started to get lively',
+          'with hardworking bunnies’ contribution, the progress on expansion slowly takes shape\nwe now have a home to take shelter in.\npeople role all walks of life started. to notice this deserted plot of land\nelves, knights, warlocks, even pirates\nthe area started to get lively',
       },
       {
         type: 'image',
@@ -141,7 +141,7 @@ const data: StageType[] = [
     ],
   },
   {
-    from: 'user',
+    role: 'user',
     messages: [
       { type: 'text', content: 'go on a conquest' },
       { type: 'text', content: 'go on a conquest' },
@@ -151,7 +151,7 @@ const data: StageType[] = [
     ],
   },
   {
-    from: 'host',
+    role: 'host',
     messages: [
       {
         type: 'text',
@@ -170,7 +170,7 @@ const data: StageType[] = [
     ],
   },
   {
-    from: 'user',
+    role: 'user',
     messages: [
       { type: 'text', content: 'the fried chicken shop in a cave' },
       { type: 'text', content: 'the fried chicken shop in a cave' },
@@ -180,7 +180,7 @@ const data: StageType[] = [
     ],
   },
   {
-    from: 'host',
+    role: 'host',
     messages: [
       {
         type: 'image',
@@ -202,7 +202,7 @@ const data: StageType[] = [
     ],
   },
   {
-    from: 'user',
+    role: 'user',
     messages: [
       { type: 'text', content: 'a group of bunnies' },
       { type: 'text', content: 'a group of bunnies' },
@@ -320,8 +320,8 @@ export default function Home() {
     <main className='w-full h-screen relative flex flex-col p-8'>
       <div className='flex-1 overflow-auto' ref={outerRef}>
         <div ref={innerRef}>
-          {injectedData.map(({ from, messages, stageIndex }) =>
-            from === 'host' ? (
+          {injectedData.map(({ role, messages, stageIndex }) =>
+            role === 'host' ? (
               <HostStage
                 key={stageIndex}
                 messages={messages}
