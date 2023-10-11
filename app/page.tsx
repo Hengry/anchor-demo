@@ -4,7 +4,8 @@ import Image from 'next/image';
 import tw from 'twin.macro';
 import { twJoin } from 'tailwind-merge';
 import { TypeAnimation } from 'react-type-animation';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
+import { Icon } from '@iconify/react';
 
 interface MessageType {
   type: 'image' | 'text';
@@ -116,6 +117,7 @@ const Stage = ({ type, messages, activeIndex, onFinished }: StageProps) => (
 // const Title = tw.div`p-8`;
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const currentStage = useRef(0);
 
   const injectedData = useMemo(() => {
     let index = 0;
@@ -142,15 +144,33 @@ export default function Home() {
             messages={messages}
             activeIndex={activeIndex}
             onFinished={(isLast) => {
-              if (isLast) setIsWaitingForInput(true);
-              else setActiveIndex((prev) => prev + 1);
+              if (isLast) {
+                setIsWaitingForInput(true);
+                currentStage.current++;
+              } else setActiveIndex((prev) => prev + 1);
             }}
           />
         ))}
       </div>
       <div className='w-full flex'>
-        <input className='flex-1 text-black' disabled={!isWaitingForInput} />
-        <
+        {isWaitingForInput ? (
+          <TypeAnimation
+            sequence={[
+              1500,
+              injectedData[currentStage.current].messages[0].content,
+            ]}
+            wrapper='div'
+            className='flex-1 text-black bg-white'
+            speed={80}
+            cursor
+          />
+        ) : (
+          <input className='flex-1 text-black' disabled={!isWaitingForInput} />
+        )}
+
+        <button disabled={!isWaitingForInput}>
+          <Icon icon='formkit:submit' />
+        </button>
       </div>
     </main>
   );
