@@ -4,7 +4,8 @@ const data: StageType[] = [
     messages: [
       {
         type: 'text',
-        content: 'The king says, “that plot of land is yours to keep.”',
+        content:
+          '(Reference of this story: https://www.ptt.cc/bbs/joke/M.1630665730.A.2CC.html)\nThe king says, “that plot of land is yours to keep.”',
       },
       {
         type: 'image',
