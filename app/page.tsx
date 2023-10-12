@@ -26,6 +26,7 @@ const AssistantMessage = ({ type, content, onFinished }: MessageProps) => {
       <Image
         src={content}
         alt='image'
+        className='py-2'
         width={480}
         height={480}
         priority
@@ -69,7 +70,7 @@ const AssistantStage = ({ messages, onFinished }: StageProps) => {
 };
 
 const UserStage = ({ messages, isLatest }: Omit<StageProps, 'onFinished'>) => (
-  <div className='w-full flex flex-col items-end'>
+  <div className='w-full flex flex-col items-end py-2'>
     {messages.map(({ content }, index) => (
       <div
         className={
@@ -131,7 +132,7 @@ export default function Home() {
   const [input, setInput] = useState('');
 
   return (
-    <main className='w-full h-screen relative flex flex-col'>
+    <main className='mx-auto w-[52rem] h-screen relative flex flex-col'>
       <div className='flex-1 overflow-auto p-8' ref={outerRef}>
         <div ref={innerRef}>
           {injectedData.map(({ role, messages, stageIndex }, index) =>
@@ -153,7 +154,7 @@ export default function Home() {
           )}
         </div>
       </div>
-      {time}
+      <div className='px-8'>{time}</div>
       <div className='w-full flex pl-8 pb-8 pr-4 no-scrollbar items-center'>
         <input
           className='flex-1 text-black'
