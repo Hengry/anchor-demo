@@ -366,7 +366,11 @@ const data: StageType[] = [
       },
       {
         type: 'text',
-        content: '......\n............................',
+        content: '......',
+      },
+      {
+        type: 'text',
+        content: '..................',
       },
       {
         type: 'image',
