@@ -73,12 +73,13 @@ const UserStage = ({ messages, isLatest }: Omit<StageProps, 'onFinished'>) => (
   <div className='w-full flex flex-col items-end py-2'>
     {messages.map(({ content }, index) => (
       <div
-        className={
-          isLatest || index === messages.length - 2 ? '' : 'text-gray-600'
-        }
+        className={twJoin(
+          !isLatest && index !== messages.length - 2 && 'text-gray-600',
+          !isLatest && index === messages.length - 2 && 'text-yellow-300'
+        )}
         key={index}
       >
-        {content}
+        user1234: {content}
       </div>
     ))}
   </div>
@@ -86,11 +87,10 @@ const UserStage = ({ messages, isLatest }: Omit<StageProps, 'onFinished'>) => (
 
 // const Title = tw.div`p-8`;
 export default function Home() {
-  const [currentStage, setCurrentStage] = useState(0);
-
   const outerRef = useRef<ElementRef<'div'>>(null);
   const innerRef = useRef<ElementRef<'div'>>(null);
   useEffect(() => {
+    inputRef?.current?.focus();
     if (!innerRef.current) return;
     const resizeObserver = new ResizeObserver(() => {
       outerRef.current?.scrollTo(0, outerRef.current?.scrollHeight);
@@ -129,7 +129,13 @@ export default function Home() {
     }, 1000);
   }, [goNextStage]);
 
+  const inputRef = useRef<ElementRef<'input'>>(null);
   const [input, setInput] = useState('');
+
+  const handleSubmitInput = useCallback(() => {
+    pushMessage(input);
+    setInput('');
+  }, [input, pushMessage]);
 
   return (
     <main className='mx-auto w-[52rem] h-screen relative flex flex-col'>
@@ -157,19 +163,25 @@ export default function Home() {
       <div className='px-8'>{time}</div>
       <div className='w-full flex pl-8 pb-8 pr-4 no-scrollbar items-center'>
         <input
+          ref={inputRef}
           className='flex-1 text-black'
           value={input}
+          onBlur={() => {
+            inputRef.current?.focus();
+          }}
           onChange={(e) => {
             setInput(e.target.value);
+          }}
+          onKeyDown={(e) => {
+            if (time !== 0 && e.key === 'Enter') {
+              handleSubmitInput();
+            }
           }}
         />
         <button
           className='ml-2'
           disabled={time === 0}
-          onClick={() => {
-            pushMessage(input);
-            setInput('');
-          }}
+          onClick={handleSubmitInput}
         >
           <Icon className='w-8 h-8' icon='formkit:submit' />
         </button>
