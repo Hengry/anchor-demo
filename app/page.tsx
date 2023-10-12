@@ -162,7 +162,7 @@ export default function Home() {
           )}
         </div>
       </div>
-      <div className='px-8'>{time}</div>
+      <div className='px-8'>{time || null}</div>
       <div className='w-full flex pl-8 pb-8 pr-4 no-scrollbar items-center'>
         <input
           ref={inputRef}
@@ -181,7 +181,7 @@ export default function Home() {
           }}
         />
         <button
-          className='ml-2'
+          className='ml-3'
           disabled={time === 0}
           onClick={handleSubmitInput}
         >
