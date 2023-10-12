@@ -6,7 +6,6 @@ export default function useMessageStorage() {
     data[0],
     { role: 'user', messages: [] },
   ]);
-  // const [currentStage, setCurrentStage] = useState(0);
   const stage = useRef(0);
   const goNextStage = useCallback(() => {
     stage.current += 2;

@@ -19,8 +19,12 @@ const data: StageType[] = [
   {
     role: 'user',
     messages: [
-      { type: 'text', content: 'Plant cannabis' },
-      { type: 'text', content: 'put up a “For Rent” sign to get some tenants' },
+      { type: 'text', content: 'Plant cannabis', userId: 'chill420' },
+      {
+        type: 'text',
+        content: 'put up a “For Rent” sign to get some tenants',
+        userId: 'richard888',
+      },
     ],
   },
   {
@@ -45,8 +49,12 @@ const data: StageType[] = [
   {
     role: 'user',
     messages: [
-      { type: 'text', content: 'a group of bunnies' },
-      { type: 'text', content: 'someone asking to use your restroom' },
+      { type: 'text', content: 'a group of bunnies', userId: 'richard888' },
+      {
+        type: 'text',
+        content: 'someone asking to use your restroom',
+        userId: 'a9527',
+      },
     ],
   },
   {
@@ -73,10 +81,12 @@ const data: StageType[] = [
       {
         type: 'text',
         content: 'a bunny high on drugs invites you to hololive',
+        userId: 'chill420',
       },
       {
         type: 'text',
         content: 'sell rabbit meat to make money',
+        userId: 'richard888',
       },
     ],
   },
@@ -101,8 +111,8 @@ const data: StageType[] = [
   {
     role: 'user',
     messages: [
-      { type: 'text', content: 'go on a conquest' },
-      { type: 'text', content: 'idol group debut' },
+      { type: 'text', content: 'go on a conquest', userId: 'richard888' },
+      { type: 'text', content: 'idol group debut', userId: 'a9527' },
     ],
   },
   {
@@ -127,8 +137,16 @@ const data: StageType[] = [
   {
     role: 'user',
     messages: [
-      { type: 'text', content: 'the fried chicken shop in a cave' },
-      { type: 'text', content: 'Norway to eat smoked salmon' },
+      {
+        type: 'text',
+        content: 'the fried chicken shop in a cave',
+        userId: 'richard888',
+      },
+      {
+        type: 'text',
+        content: 'Norway to eat smoked salmon',
+        userId: 'eat_to_die',
+      },
     ],
   },
   {
@@ -156,11 +174,16 @@ const data: StageType[] = [
   {
     role: 'user',
     messages: [
-      { type: 'text', content: 'large dimsum of the universe' },
+      {
+        type: 'text',
+        content: 'large dimsum of the universe',
+        userId: 'eat_to_die',
+      },
       {
         type: 'text',
         content:
           'little gnomes loved the fried chicken so much they opened franchise stores',
+        userId: 'chill420',
       },
     ],
   },
@@ -190,10 +213,12 @@ const data: StageType[] = [
         type: 'text',
         content:
           'time to allocate tasks and responsibilities: food group, construction group, dimsum eating group...etc',
+        userId: 'richard888',
       },
       {
         type: 'text',
         content: 'battle the dark witch of the southern forest',
+        userId: 'a9527',
       },
     ],
   },
@@ -226,10 +251,12 @@ const data: StageType[] = [
       {
         type: 'text',
         content: 'man-eating giants! celestial beings! the king!',
+        userId: 'a9527',
       },
       {
         type: 'text',
         content: 'fried chicken king from the fried chicken village',
+        userId: 'chill420',
       },
     ],
   },
@@ -255,8 +282,8 @@ const data: StageType[] = [
   {
     role: 'user',
     messages: [
-      { type: 'text', content: 'crown yourself king' },
-      { type: 'text', content: 'bribe with food' },
+      { type: 'text', content: 'crown yourself king', userId: 'richard888' },
+      { type: 'text', content: 'bribe with food', userId: 'eat_to_die' },
     ],
   },
   {
@@ -281,8 +308,12 @@ const data: StageType[] = [
   {
     role: 'user',
     messages: [
-      { type: 'text', content: 'a sanitary napkin elf appeared' },
-      { type: 'text', content: 'marry the king' },
+      {
+        type: 'text',
+        content: 'a sanitary napkin elf appeared',
+        userId: 'chill420',
+      },
+      { type: 'text', content: 'marry the king', userId: 'a9527' },
     ],
   },
   {
@@ -307,8 +338,12 @@ const data: StageType[] = [
   {
     role: 'user',
     messages: [
-      { type: 'text', content: 'huge boobs' },
-      { type: 'text', content: 'the crime of not eating enough' },
+      { type: 'text', content: 'huge boobs', userId: 'a9527' },
+      {
+        type: 'text',
+        content: 'the crime of not eating enough',
+        userId: 'eat_to_die',
+      },
     ],
   },
   {
@@ -335,11 +370,13 @@ const data: StageType[] = [
       {
         type: 'text',
         content: 'the above is an advertisement for sanitary napkins',
+        userId: 'richard888',
       },
       {
         type: 'text',
         content:
           'two bunnies hop out from the breast plate, big boobs is a hoax',
+        userId: 'a9527',
       },
     ],
   },

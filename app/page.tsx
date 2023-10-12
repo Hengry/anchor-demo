@@ -15,7 +15,7 @@ import {
 import { Icon } from '@iconify/react';
 import useMessageStorage from '@/app/hooks/useMessageStorage';
 
-const secondsPerStage = 20;
+const secondsPerStage = 15;
 
 interface MessageProps extends MessageType {
   onFinished: () => void;
@@ -30,7 +30,9 @@ const AssistantMessage = ({ type, content, onFinished }: MessageProps) => {
         width={480}
         height={480}
         priority
-        onLoadingComplete={onFinished}
+        onLoadingComplete={() => {
+          setTimeout(onFinished, 1000);
+        }}
       />
     );
   return (
@@ -71,7 +73,7 @@ const AssistantStage = ({ messages, onFinished }: StageProps) => {
 
 const UserStage = ({ messages, isLatest }: Omit<StageProps, 'onFinished'>) => (
   <div className='w-full flex flex-col items-end py-2'>
-    {messages.map(({ content }, index) => (
+    {messages.map(({ content, userId }, index) => (
       <div
         className={twJoin(
           !isLatest && index !== messages.length - 2 && 'text-gray-600',
@@ -79,7 +81,7 @@ const UserStage = ({ messages, isLatest }: Omit<StageProps, 'onFinished'>) => (
         )}
         key={index}
       >
-        user1234: {content}
+        {userId || 'anonymous'}: {content}
       </div>
     ))}
   </div>
