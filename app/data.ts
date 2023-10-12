@@ -19,11 +19,8 @@ const data: StageType[] = [
   {
     role: 'user',
     messages: [
-      { type: 'text', content: 'Plant cannabisEarly' },
-      { type: 'text', content: 'Plant cannabis222' },
-      { type: 'text', content: 'Plant cannabis12314' },
       { type: 'text', content: 'Plant cannabis' },
-      { type: 'text', content: 'Plant cannabis444' },
+      { type: 'text', content: 'put up a “For Rent” sign to get some tenants' },
     ],
   },
   {
@@ -49,10 +46,7 @@ const data: StageType[] = [
     role: 'user',
     messages: [
       { type: 'text', content: 'a group of bunnies' },
-      { type: 'text', content: 'a group of bunnies' },
-      { type: 'text', content: 'a group of bunnies' },
-      { type: 'text', content: 'a group of bunnies' },
-      { type: 'text', content: 'a group of bunnies' },
+      { type: 'text', content: 'someone asking to use your restroom' },
     ],
   },
   {
@@ -82,19 +76,7 @@ const data: StageType[] = [
       },
       {
         type: 'text',
-        content: 'a bunny high on drugs invites you to hololive',
-      },
-      {
-        type: 'text',
-        content: 'a bunny high on drugs invites you to hololive',
-      },
-      {
-        type: 'text',
-        content: 'a bunny high on drugs invites you to hololive',
-      },
-      {
-        type: 'text',
-        content: 'a bunny high on drugs invites you to hololive',
+        content: 'sell rabbit meat to make money',
       },
     ],
   },
@@ -120,10 +102,7 @@ const data: StageType[] = [
     role: 'user',
     messages: [
       { type: 'text', content: 'go on a conquest' },
-      { type: 'text', content: 'go on a conquest' },
-      { type: 'text', content: 'go on a conquest' },
-      { type: 'text', content: 'go on a conquest' },
-      { type: 'text', content: 'go on a conquest' },
+      { type: 'text', content: 'idol group debut' },
     ],
   },
   {
@@ -149,10 +128,7 @@ const data: StageType[] = [
     role: 'user',
     messages: [
       { type: 'text', content: 'the fried chicken shop in a cave' },
-      { type: 'text', content: 'the fried chicken shop in a cave' },
-      { type: 'text', content: 'the fried chicken shop in a cave' },
-      { type: 'text', content: 'the fried chicken shop in a cave' },
-      { type: 'text', content: 'the fried chicken shop in a cave' },
+      { type: 'text', content: 'Norway to eat smoked salmon' },
     ],
   },
   {
@@ -181,10 +157,11 @@ const data: StageType[] = [
     role: 'user',
     messages: [
       { type: 'text', content: 'large dimsum of the universe' },
-      { type: 'text', content: 'large dimsum of the universe' },
-      { type: 'text', content: 'large dimsum of the universe' },
-      { type: 'text', content: 'large dimsum of the universe' },
-      { type: 'text', content: 'large dimsum of the universe' },
+      {
+        type: 'text',
+        content:
+          'little gnomes loved the fried chicken so much they opened franchise stores',
+      },
     ],
   },
   {
@@ -216,23 +193,7 @@ const data: StageType[] = [
       },
       {
         type: 'text',
-        content:
-          'time to allocate tasks and responsibilities: food group, construction group, dimsum eating group...etc',
-      },
-      {
-        type: 'text',
-        content:
-          'time to allocate tasks and responsibilities: food group, construction group, dimsum eating group...etc',
-      },
-      {
-        type: 'text',
-        content:
-          'time to allocate tasks and responsibilities: food group, construction group, dimsum eating group...etc',
-      },
-      {
-        type: 'text',
-        content:
-          'time to allocate tasks and responsibilities: food group, construction group, dimsum eating group...etc',
+        content: 'battle the dark witch of the southern forest',
       },
     ],
   },
@@ -268,19 +229,7 @@ const data: StageType[] = [
       },
       {
         type: 'text',
-        content: 'man-eating giants! celestial beings! the king!',
-      },
-      {
-        type: 'text',
-        content: 'man-eating giants! celestial beings! the king!',
-      },
-      {
-        type: 'text',
-        content: 'man-eating giants! celestial beings! the king!',
-      },
-      {
-        type: 'text',
-        content: 'man-eating giants! celestial beings! the king!',
+        content: 'fried chicken king from the fried chicken village',
       },
     ],
   },
@@ -307,10 +256,7 @@ const data: StageType[] = [
     role: 'user',
     messages: [
       { type: 'text', content: 'crown yourself king' },
-      { type: 'text', content: 'crown yourself king' },
-      { type: 'text', content: 'crown yourself king' },
-      { type: 'text', content: 'crown yourself king' },
-      { type: 'text', content: 'crown yourself king' },
+      { type: 'text', content: 'bribe with food' },
     ],
   },
   {
@@ -336,10 +282,7 @@ const data: StageType[] = [
     role: 'user',
     messages: [
       { type: 'text', content: 'a sanitary napkin elf appeared' },
-      { type: 'text', content: 'a sanitary napkin elf appeared' },
-      { type: 'text', content: 'a sanitary napkin elf appeared' },
-      { type: 'text', content: 'a sanitary napkin elf appeared' },
-      { type: 'text', content: 'a sanitary napkin elf appeared' },
+      { type: 'text', content: 'marry the king' },
     ],
   },
   {
@@ -365,10 +308,7 @@ const data: StageType[] = [
     role: 'user',
     messages: [
       { type: 'text', content: 'huge boobs' },
-      { type: 'text', content: 'huge boobs' },
-      { type: 'text', content: 'huge boobs' },
-      { type: 'text', content: 'huge boobs' },
-      { type: 'text', content: 'huge boobs' },
+      { type: 'text', content: 'the crime of not eating enough' },
     ],
   },
   {
@@ -398,19 +338,8 @@ const data: StageType[] = [
       },
       {
         type: 'text',
-        content: 'the above is an advertisement for sanitary napkins',
-      },
-      {
-        type: 'text',
-        content: 'the above is an advertisement for sanitary napkins',
-      },
-      {
-        type: 'text',
-        content: 'the above is an advertisement for sanitary napkins',
-      },
-      {
-        type: 'text',
-        content: 'the above is an advertisement for sanitary napkins',
+        content:
+          'two bunnies hop out from the breast plate, big boobs is a hoax',
       },
     ],
   },
