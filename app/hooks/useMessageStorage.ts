@@ -12,7 +12,15 @@ export default function useMessageStorage() {
     stage.current += 2;
     setMessages((prev) => {
       const newMessages = [...prev];
-      newMessages.push(...data.slice(stage.current - 1, stage.current + 1), {
+      const lastStageMessages = [
+        ...prev[prev.length - 1].messages,
+        ...data[stage.current - 1].messages,
+      ];
+      newMessages[newMessages.length - 1] = {
+        role: 'user',
+        messages: lastStageMessages,
+      };
+      newMessages.push(...data.slice(stage.current, stage.current + 1), {
         role: 'user',
         messages: [],
       });
