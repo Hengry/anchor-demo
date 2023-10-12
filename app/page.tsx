@@ -15,6 +15,8 @@ import {
 import { Icon } from '@iconify/react';
 import useMessageStorage from '@/app/hooks/useMessageStorage';
 
+const secondsPerStage = 20;
+
 interface MessageProps extends MessageType {
   onFinished: () => void;
 }
@@ -112,7 +114,7 @@ export default function Home() {
   const [time, setTime] = useState(0);
   const timer = useRef<NodeJS.Timeout | undefined>();
   const startTimer = useCallback(() => {
-    setTime(10);
+    setTime(secondsPerStage);
     timer.current = setInterval(() => {
       setTime((prev) => {
         if (prev === 0) return prev;
