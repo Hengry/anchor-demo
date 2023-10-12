@@ -12,7 +12,7 @@ const data: StageType[] = [
       },
       {
         type: 'text',
-        content: 'what should we do next?\n(the 3rd to last before timer end)',
+        content: 'what should we do next?\n(the 2nd to last before timer end)',
       },
     ],
   },
@@ -38,7 +38,7 @@ const data: StageType[] = [
       {
         type: 'text',
         content:
-          'oh? someone is approaching. who could it be?(the second response after 7:07 pm)',
+          'oh? someone is approaching. who could it be?\n(the 2nd to last before timer end)',
       },
     ],
   },
@@ -63,7 +63,7 @@ const data: StageType[] = [
       },
       {
         type: 'text',
-        content: 'What should we do next?\n(the first response after 7:22 pm)',
+        content: 'What should we do next?\n(the 2nd to last before timer end)',
       },
     ],
   },
@@ -94,7 +94,7 @@ const data: StageType[] = [
       },
       {
         type: 'text',
-        content: 'what’s next?\n(the second response after 7:48 pm)',
+        content: 'what’s next?\n(the 2nd to last before timer end)',
       },
     ],
   },
@@ -120,7 +120,7 @@ const data: StageType[] = [
       {
         type: 'text',
         content:
-          'so, what is the goal of our conquest?\n(the third response after 8:08 pm)',
+          'so, what is the goal of our conquest?\n(the 2nd to last before timer end)',
       },
     ],
   },
@@ -149,7 +149,7 @@ const data: StageType[] = [
       {
         type: 'text',
         content:
-          'we discovered something dangerous\nbut maybe it could be of use in the future\nwhat should we do next?\n(second response after 8:39 pm)',
+          'we discovered something dangerous\nbut maybe it could be of use in the future\nwhat should we do next?\n(the 2nd to last before timer end)',
       },
     ],
   },
@@ -179,7 +179,7 @@ const data: StageType[] = [
       {
         type: 'text',
         content:
-          'new families continue to expand\nwhat should we do next?\n(first response after 9:05 pm)',
+          'new families continue to expand\nwhat should we do next?\n(the 2nd to last before timer end)',
       },
     ],
   },
@@ -216,7 +216,7 @@ const data: StageType[] = [
       {
         type: 'text',
         content:
-          'by the time you realize, the village is now a decent sized town\none day, something happened\nthat day, OOO appeared\nOOO = ?\n(first response after 9:35 pm)',
+          'by the time you realize, the village is now a decent sized town\none day, something happened\nthat day, OOO appeared\nOOO = ?\n(the 2nd to last before timer end)',
       },
     ],
   },
@@ -248,7 +248,7 @@ const data: StageType[] = [
       {
         type: 'text',
         content:
-          'suppose this is who the king sends\nwhat do we do next?\n(third response after 10 pm)',
+          'suppose this is who the king sends\nwhat do we do next?\n(the 2nd to last before timer end)',
       },
     ],
   },
@@ -274,7 +274,7 @@ const data: StageType[] = [
       {
         type: 'text',
         content:
-          'the Southern Kingdom raiser their flag against the Middle Kingdom\nwhat will happen next?\n(second response after 10:22 pm)',
+          'the Southern Kingdom raiser their flag against the Middle Kingdom\nwhat will happen next?\n(the 2nd to last before timer end)',
       },
     ],
   },
@@ -300,7 +300,7 @@ const data: StageType[] = [
       {
         type: 'text',
         content:
-          'At this time, the Middle Kingdom is preparing to march towards the Southern Kingdom.\nAnd the righteousness of sending troops\nThat church fabricated the bad reputation it gave to the people of the South.\nThat is the crime of OOO\nＯＯＯ = ?\n(first response after 10:48 pm)',
+          'At this time, the Middle Kingdom is preparing to march towards the Southern Kingdom.\nAnd the righteousness of sending troops\nThat church fabricated the bad reputation it gave to the people of the South.\nThat is the crime of OOO\nＯＯＯ = ?\n(the 2nd to last before timer end)',
       },
     ],
   },
@@ -325,7 +325,7 @@ const data: StageType[] = [
       },
       {
         type: 'text',
-        content: '(second response after 11:48 pm - finale)',
+        content: '(the 2nd to last before timer end - finale)',
       },
     ],
   },
@@ -375,6 +375,10 @@ const data: StageType[] = [
       {
         type: 'image',
         content: 'https://i.imgur.com/JsQOlcF.png',
+      },
+      {
+        type: 'text',
+        content: 'the end',
       },
     ],
   },
